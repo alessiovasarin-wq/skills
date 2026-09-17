@@ -85,3 +85,7 @@ A change can pass one axis and fail the other:
 - Code that does exactly what the issue asked but breaks the project's conventions → **Spec pass, Standards fail.**
 
 Reporting them separately stops one axis from masking the other.
+
+## What this doesn't cover
+
+Both axes read the diff. Neither asks what the diff breaks **outside** itself (callers, stored data, wire formats, jobs), nor whether the feature actually works when you run it. For the first, use `/blast-radius`; for the second, the project `verify` skill (see `/create-verification-skill`). If the change obviously reaches beyond the diff and neither was run, say so in the one-line summary.

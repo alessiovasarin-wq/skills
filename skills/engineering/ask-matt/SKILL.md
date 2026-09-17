@@ -23,7 +23,7 @@ The route most work travels. You have an idea and want it built.
    - **Yes** → **`/to-spec`** (turn the thread into a spec), then **`/to-tickets`** to split it into tracer-bullet tickets, each declaring its **blocking edges**. On a local tracker that's one file per ticket under `.scratch/<feature>/issues/`, worked blockers-first by hand; on a real tracker the edges become native blocking links, so any ticket whose blockers are done can be grabbed: kick off **`/implement`** per ticket, **`/clear`ing context between each one**. Each ticket is self-contained, so the last one's context is disposable.
    - **No** → **`/implement`** right here, in the same context window.
 
-   Either way, **`/implement`** builds each issue by driving **`/tdd`** internally (one red-green slice at a time), then closes out by running **`/code-review`**, a two-axis review (Standards + Spec) of the diff, before committing. Reach for **`/tdd`** on its own when you just want to build a concrete behaviour test-first without a full spec, and **`/code-review`** on its own whenever you want to review a branch or PR against a fixed point.
+   Either way, **`/implement`** builds each issue by driving **`/tdd`** internally (one red-green slice at a time), then **proves it works** on the real user path (through the project **`verify`** skill when the repo has one, see Proof layer), runs **`/blast-radius`** when the change reaches beyond the diff, and closes out by running **`/code-review`**, a two-axis review (Standards + Spec) of the diff, before committing. Reach for **`/tdd`** on its own when you just want to build a concrete behaviour test-first without a full spec, and **`/code-review`** on its own whenever you want to review a branch or PR against a fixed point.
 
 ### Context hygiene
 
@@ -50,6 +50,15 @@ A starting situation that generates work, then merges onto the main flow.
 Not feature work, just upkeep.
 
 - **`/improve-codebase-architecture`** runs whenever you have a spare moment to keep the codebase good for agents to operate in. It surfaces **deepening opportunities**; picking one _generates an idea_ you can take into the main flow at `/grill-with-docs`. It's the survey that finds the candidates; **`/codebase-design`** (below) is the bench you design the chosen one on.
+
+- **`/maintain-verification-skill`** keeps the project `verify` skill and its feature map honest after the app has changed. Same spirit as the architecture survey: upkeep, run in a spare moment or after a batch of `/implement` tickets touched user-facing behaviour.
+
+## Proof layer
+
+Two skills that answer "does it actually work, and what else did it break?", the questions `/tdd` and `/code-review` leave open because both look at the diff.
+
+- **`/create-verification-skill`**: run once per repo with a user-facing surface (web UI, CLI, API). It generates a project-local **`verify`** skill (launch, doctor, drive, evidence, cleanup) plus a **feature map** named in `CONTEXT.md` terms. After that, `/implement` and `/diagnosing-bugs` drive the real app through it instead of stopping at "the tests pass". Set it up alongside `/setup-matt-pocock-skills`, or the first time `/implement` suggests it.
+- **`/blast-radius`**: what a change breaks **outside** the diff (callers, stored data, wire formats, jobs, flags), with the one fact that makes it safe **proven by running code**. `/implement` and `/diagnosing-bugs` call it when a change reaches beyond its own code path. Reach for it directly before designing against a claim about existing code ("X already handles Y", "just make X public"), during `/grill-with-docs` or `/wayfinder`: the claim is a hypothesis until blast-radius proves it.
 
 ## Vocabulary underneath
 

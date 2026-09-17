@@ -1,10 +1,10 @@
 {
-  "name": "mattpocock",
+  "name": "alessio",
   "owner": {
-    "name": "Matt Pocock",
-    "url": "https://www.aihero.dev"
+    "name": "Alessio Vasarin",
+    "url": "https://github.com/alessiovasarin-wq"
   },
-  "description": "Matt Pocock's skills for real engineering, as an installable Claude Code plugin.",
+  "description": "Alessio's fork of Matt Pocock's skills, with a proof layer from pstack.",
   "plugins": [
     {
       "name": "mattpocock-skills",

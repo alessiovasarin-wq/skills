@@ -34,6 +34,8 @@ Spend disproportionate effort here. **Be aggressive. Be creative. Refuse to give
 9. **Differential loop.** Run the same input through old-version vs new-version (or two configs) and diff outputs.
 10. **HITL bash script.** Last resort. If a human must click, drive _them_ with `scripts/hitl-loop.template.sh` so the loop is still structured. Captured output feeds back to you.
 
+If the repo has a project `verify` skill (`.claude/skills/verify/`), its Launch, Doctor and Drive sections are a ready-made harness for options 2–4: reuse them instead of building one from scratch.
+
 Build the right feedback loop, and the bug is 90% fixed.
 
 ### Tighten the loop
@@ -127,11 +129,14 @@ If a correct seam exists:
 4. Watch it pass.
 5. Re-run the Phase 1 feedback loop against the original (un-minimised) scenario.
 
+If the fix changes something consumed outside the bug's code path (a shared helper, a schema, a public API, a default), run `/blast-radius` on it before calling it done: a fix that clears this symptom can open another one elsewhere.
+
 ## Phase 6: Cleanup
 
 Required before declaring done:
 
 - [ ] Original repro no longer reproduces (re-run the Phase 1 loop)
+- [ ] For a user-visible bug, the fix is proven on the real user path (the project `verify` skill if there is one), not only by the test
 - [ ] Regression test passes (or absence of seam is documented)
 - [ ] All `[DEBUG-...]` instrumentation removed (`grep` the prefix)
 - [ ] Throwaway prototypes deleted (or moved to a clearly-marked debug location)
