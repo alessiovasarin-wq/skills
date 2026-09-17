@@ -1,6 +1,6 @@
 {
   "name": "mattpocock-skills",
-  "version": "1.2.3-alessio.1",
+  "version": "1.2.3-alessio.2",
   "description": "Fork of Matt Pocock's skills with a proof layer (blast-radius, verify skill) taken from pstack.",
   "author": {
     "name": "Matt Pocock",

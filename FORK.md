@@ -13,6 +13,7 @@ Questo repository è un fork di [mattpocock/skills](https://github.com/mattpococ
   - `code-review`: sezione finale "What this doesn't cover"
   - `diagnosing-bugs`: riuso di `verify` in Phase 1, `/blast-radius` in Phase 5, checklist in Phase 6
   - `ask-matt`: main flow aggiornato + sezione "Proof layer"
+- **Nomi qualificati**: in `implement`, `ask-matt`, `tdd` e `blast-radius` la review di Matt è chiamata `/mattpocock-skills:code-review`, perché `/code-review` da solo apre la review integrata di Claude Code. Dopo ogni merge da upstream controlla con `grep -rn "/code-review" skills` che non siano tornati riferimenti senza prefisso.
 - **Manifest**: marketplace rinominato `alessio`, versione `X.Y.Z-alessio.N` in `.claude-plugin/plugin.json`.
 
 ## Regola: si modifica qui, poi commit e push

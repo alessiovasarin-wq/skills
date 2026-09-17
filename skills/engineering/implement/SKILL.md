@@ -19,6 +19,6 @@ Before review, prove it works. Green tests are a proxy, not the proof:
 
 If the change touches something consumed outside the diff (a public API, a schema or DB column, a wire format, config or env vars, a shared module), run /blast-radius on it.
 
-Once done, use /code-review to review the work.
+Once done, use /mattpocock-skills:code-review to review the work.
 
 Commit your work to the current branch.

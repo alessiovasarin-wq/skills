@@ -7,7 +7,7 @@ description: "Find what a change could break somewhere else before it ships, bey
 
 Find what a change breaks somewhere else, before it ships. Use for "blast radius of X", "what could this break", or reviewing a small diff you don't trust yet. Run it before design, not only before shipping, when a brief asserts something about existing code ("make endpoint X public"): the assertion is a hypothesis, and the consumer census is what decides the design.
 
-`/code-review` judges the diff against standards and spec. Blast radius judges what the diff does to everything **outside** it. Run them as a pair; neither replaces the other.
+`/mattpocock-skills:code-review` judges the diff against standards and spec. Blast radius judges what the diff does to everything **outside** it. Run them as a pair; neither replaces the other.
 
 Listing the callers is not the job. The agent can grep those in a second. The job is the breakage grep won't show you.
 
